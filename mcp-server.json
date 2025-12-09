@@ -1,0 +1,114 @@
+{
+  "name": "Laravel Todo MCP Server",
+  "version": "1.0.0",
+  "description": "MCP server for Laravel Todo application",
+  "server": {
+    "host": "localhost",
+    "port": 3000,
+    "protocol": "http"
+  },
+  "capabilities": [
+    "todo.list",
+    "todo.create",
+    "todo.update",
+    "todo.delete",
+    "todo.toggle"
+  ],
+  "endpoints": {
+    "list_todos": {
+      "method": "GET",
+      "path": "/api/todos",
+      "description": "Retrieve all todos"
+    },
+    "create_todo": {
+      "method": "POST",
+      "path": "/api/todos",
+      "description": "Create a new todo",
+      "parameters": {
+        "title": {
+          "type": "string",
+          "required": true,
+          "description": "Title of the todo"
+        },
+        "description": {
+          "type": "string",
+          "required": false,
+          "description": "Description of the todo"
+        }
+      }
+    },
+    "get_todo": {
+      "method": "GET",
+      "path": "/api/todos/{id}",
+      "description": "Get a specific todo",
+      "parameters": {
+        "id": {
+          "type": "integer",
+          "required": true,
+          "description": "ID of the todo"
+        }
+      }
+    },
+    "update_todo": {
+      "method": "PUT",
+      "path": "/api/todos/{id}",
+      "description": "Update an existing todo",
+      "parameters": {
+        "id": {
+          "type": "integer",
+          "required": true,
+          "description": "ID of the todo"
+        },
+        "title": {
+          "type": "string",
+          "required": true,
+          "description": "Title of the todo"
+        },
+        "description": {
+          "type": "string",
+          "required": false,
+          "description": "Description of the todo"
+        },
+        "completed": {
+          "type": "boolean",
+          "required": false,
+          "description": "Completion status"
+        }
+      }
+    },
+    "delete_todo": {
+      "method": "DELETE",
+      "path": "/api/todos/{id}",
+      "description": "Delete a todo",
+      "parameters": {
+        "id": {
+          "type": "integer",
+          "required": true,
+          "description": "ID of the todo"
+        }
+      }
+    },
+    "toggle_todo": {
+      "method": "POST",
+      "path": "/api/todos/{id}/toggle",
+      "description": "Toggle todo completion status",
+      "parameters": {
+        "id": {
+          "type": "integer",
+          "required": true,
+          "description": "ID of the todo"
+        }
+      }
+    }
+  },
+  "authentication": {
+    "type": "none",
+    "note": "For production, consider implementing API token authentication"
+  },
+  "cors": {
+    "enabled": true,
+    "allowed_origins": ["*"],
+    "allowed_methods": ["GET", "POST", "PUT", "DELETE"],
+    "allowed_headers": ["Content-Type", "Accept", "Authorization"]
+  }
+}
