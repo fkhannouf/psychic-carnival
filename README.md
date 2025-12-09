@@ -12,7 +12,7 @@ Application de gestion de tâches (Todo) avec système d'utilisateurs.
 
 1. Cloner le dépôt :
 ```bash
-git clone https://github.com/fkhannouf/psychic-carnival.git
+git clone <repository-url>
 cd psychic-carnival
 ```
 

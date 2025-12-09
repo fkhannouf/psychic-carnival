@@ -40,12 +40,6 @@ exports.up = (pgm) => {
       default: pgm.func('current_timestamp'),
     },
   });
-
-  // Create index on email for faster lookups
-  pgm.createIndex('users', 'email');
-  
-  // Create index on username for faster lookups
-  pgm.createIndex('users', 'username');
 };
 
 exports.down = (pgm) => {
