@@ -57,6 +57,16 @@ exports.up = (pgm) => {
   
   // Create index on due_date for sorting
   pgm.createIndex('todos', 'due_date');
+
+  // Add CHECK constraint for status
+  pgm.addConstraint('todos', 'todos_status_check', {
+    check: "status IN ('pending', 'in_progress', 'completed')",
+  });
+
+  // Add CHECK constraint for priority
+  pgm.addConstraint('todos', 'todos_priority_check', {
+    check: "priority IN ('low', 'medium', 'high')",
+  });
 };
 
 exports.down = (pgm) => {
