@@ -1,0 +1,27 @@
+{
+  "dev": {
+    "driver": "pg",
+    "host": "localhost",
+    "port": 5432,
+    "database": "psychic_carnival_dev",
+    "user": "postgres",
+    "password": "postgres"
+  },
+  "test": {
+    "driver": "pg",
+    "host": "localhost",
+    "port": 5432,
+    "database": "psychic_carnival_test",
+    "user": "postgres",
+    "password": "postgres"
+  },
+  "production": {
+    "driver": "pg",
+    "host": {"ENV": "DB_HOST"},
+    "port": {"ENV": "DB_PORT", "DEFAULT": 5432},
+    "database": {"ENV": "DB_NAME"},
+    "user": {"ENV": "DB_USER"},
+    "password": {"ENV": "DB_PASSWORD"},
+    "ssl": true
+  }
+}
